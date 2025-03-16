@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Videos</title>
+    <link rel="stylesheet" href="proyecto2.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#upload">Subir Video</a></li>
+                <li><a href="#gallery">Películas</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <h1>Plataforma de Videos</h1>
+    </header>
+    <main>
+        <section id="upload" class="upload-section">
+            <h2>Subir Video</h2>
+            <input type="file" id="videoInput" accept="video/*">
+            <button onclick="uploadVideo()">Subir</button>
+        </section>
+        <section id="gallery" class="video-gallery">
+            <h2>Películas Disponibles</h2>
+            <div id="videoContainer"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Plataforma de Videos | Todos los derechos reservados</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
