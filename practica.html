@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir y Reproducir Videos</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        #videoContainer { margin-top: 20px; }
+        video { width: 100%; max-width: 600px; display: block; margin: auto; }
+        .video-item { margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <h2>Sube y Reproduce Videos</h2>
+    <input type="file" id="videoInput" accept="video/*">
+    <button onclick="uploadVideo()">Subir Video</button>
+    
+    <div id="videoContainer"></div>
+    
+    <script>
+        function uploadVideo() {
+            const input = document.getElementById('videoInput');
+            if (input.files.length === 0) {
+                alert('Por favor, selecciona un video.');
+                return;
+            }
+            
+            const file = input.files[0];
+            const videoUrl = URL.createObjectURL(file);
+            
+            const videoContainer = document.getElementById('videoContainer');
+            const videoWrapper = document.createElement('div');
+            videoWrapper.classList.add('video-item');
+            
+            const video = document.createElement('video');
+            video.controls = true;
+            video.src = videoUrl;
+            
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Eliminar';
+            deleteButton.onclick = function() {
+                videoWrapper.remove();
+            };
+            
+            videoWrapper.appendChild(video);
+            videoWrapper.appendChild(deleteButton);
+            videoContainer.appendChild(videoWrapper);
+        }
+    </script>
+</body>
+</html>
